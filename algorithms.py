@@ -26,7 +26,8 @@ def fibonacci(n):  # O(n).
     for _ in range(n):
         a, b = b, a + b
     return a
-#login in and system part
+
+#login in and menu system
 
 users = {}
 logged = False
