@@ -1,3 +1,4 @@
+#functions
 def factorial(n):  # O(n)
     if n < 0:
         return "Error: negative number"
