@@ -1,7 +1,9 @@
 # Hi 👋, I'm Mohamad Baqer Issa  
 
 💻 Passionate about programming and problem technology 
+
 🎯 Currently learning **Python**, **PHP**, **JavaScript**, **HTML**, and **Java**  
+
 📫 Reach me at: **mohamadbakerissa@gmail.com**  
 
 ---
