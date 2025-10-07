@@ -30,41 +30,48 @@ def fibonacci(n):  # O(n).
 #login in and menu system
 
 users = {}
-logged = False
+logged_user = None
 
 while True:
-    print("\n1.Factorial  2.Find Max  3.Linear Search  4.Fibonacci  5.Login  6.Exit")
-    c = input("Choice: ").strip()
+    print("\n1.Factorial  2.Find Max  3.Linear Search  4.Fibonacci  5.Login/Register  6.Logout  7.Exit")
+    choice = input("Choice: ").strip()
 
-    if c in {"1","2","3","4"} and not logged:
+    # must login first
+    if choice in {"1", "2", "3", "4"} and not logged_user:
         print("Please login first.")
         continue
-    if c == "1": 
+
+    if choice == "1":
         print(factorial(int(input("n: "))))
-    elif c == "2":
-        nums = [int(x) for x in input ("numbers: ").split()]
-        print(find_max(nums))
-    elif c == "3":
+    elif choice == "2":
         nums = [int(x) for x in input("numbers: ").split()]
-        print(linear_search(nums,int(input("target: "))))
-    elif c == "4":
+        print(find_max(nums))
+    elif choice == "3":
+        nums = [int(x) for x in input("numbers: ").split()]
+        print(linear_search(nums, int(input("target: "))))
+    elif choice == "4":
         print(fibonacci(int(input("n: "))))
-    elif c == "5":
-        u = input("Username: ").strip()
-        p = input("Password: ").strip()
-        if u in users:
-            if users[u] == p:
-                logged = True
-                print("Logged in.")
+    elif choice == "5":
+        username = input("Username: ").strip()
+        password = input("Password: ").strip()
+        if username in users:
+            if users[username] == password:
+                logged_user = username
+                print(f"Welcome back, {username}!")
             else:
                 print("Wrong password.")
         else:
-            users[u] = p
-            logged = True
-            print("User saved and logged in.")
-    elif c == "6":
-        print("Thank you for using my app")
+            users[username] = password
+            logged_user = username
+            print(f"New account created for {username}. You are now logged in.")
+    elif choice == "6":
+        if logged_user:
+            print(f"User '{logged_user}' logged out.")
+            logged_user = None
+        else:
+            print("No user is currently logged in.")
+    elif choice == "7":
+        print("Thank you for using my app.")
         break
     else:
-        print("Invalid.")
-        
+        print("Invalid choice.")
